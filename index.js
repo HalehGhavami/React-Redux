@@ -56,8 +56,14 @@ const tabReducer = (state = initialTabState, action) => {
   }
 };
 
+//before passing reducer to createStore creating an object
+const rootReducer = combineReducer({
+  mob: mobReducer,
+  tab: tabReducer,
+});
+
 //state of our application is in Redux Store
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 // state is available through getState()
 console.log('IntialStore is', store.getState());
