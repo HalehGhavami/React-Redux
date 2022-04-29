@@ -1,6 +1,8 @@
 // is not still react redux and I'm writing in node to use redux
 const redux = require('redux');
 const createStore = redux.createStore;
+//added combine reducer
+const combineReducer = redux.combineReducers;
 
 const BUY_MOB = 'BUY_MOB';
 const BUY_TAB = 'BUY_TAB';
