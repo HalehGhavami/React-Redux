@@ -4,6 +4,9 @@ const redux = require('redux');
 //adding redux logger
 const reduxLogger = require('redux-logger');
 
+//create a logger
+const logger = reduxLogger.createLogger();
+
 const createStore = redux.createStore;
 //added combine reducer
 const combineReducer = redux.combineReducers;
