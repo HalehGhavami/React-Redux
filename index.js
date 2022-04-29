@@ -28,20 +28,27 @@ const initialTabState = {
   numberOfTabs: 50,
 };
 
-//one reducer for multiple action
-const reducer = (state = initiaState, action) => {
+//multi reducer for multiple action
+
+const mobReducer = (state = initialMobState, action) => {
   switch (action.type) {
     case BUY_MOB:
       return {
         ...state,
         numberOfMobs: state.numberOfMobs - 1,
       };
+    default:
+      return state;
+  }
+};
+
+const tabReducer = (state = initialTabState, action) => {
+  switch (action.type) {
     case BUY_TAB:
       return {
         ...state,
         numberOfTabs: state.numberOfTabs - 1,
       };
-
     default:
       return state;
   }
