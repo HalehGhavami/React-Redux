@@ -8,8 +8,12 @@ const reduxLogger = require('redux-logger');
 const logger = reduxLogger.createLogger();
 
 const createStore = redux.createStore;
+
 //added combine reducer
 const combineReducer = redux.combineReducers;
+
+//create an apply middleware to be able to have a middleware
+const applyMiddleware = redux.applyMiddleware;
 
 const BUY_MOB = 'BUY_MOB';
 const BUY_TAB = 'BUY_TAB';
