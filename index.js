@@ -20,8 +20,11 @@ function buyTab() {
   };
 }
 
-const initiaState = {
+const initialMobState = {
   numberOfMobs: 100,
+};
+
+const initialTabState = {
   numberOfTabs: 50,
 };
 
