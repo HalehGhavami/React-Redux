@@ -55,5 +55,26 @@ const reducer = (state = initialState, action) => {
       };
   }
 };
+// creating Async. action-creatore with help of thunk middleware
+// we could also return a function* that we use for our dispatch()
+const fetchUsers = () => {
+  return function (dispatch) {
+    axios
+      .get('https://fakerestapi.azurewebsites.net/api/v1/Users')
+
+      .then((Response) => {
+        const users = Response.data;
+        dispatch(fetchDataSuccess(users));
+      })
+      .catch((error) => {
+        dispatch(fetchDataFailure(error.message));
+      });
+  };
+};
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
+
+store.subscribe(() => {
+  console.log(store.getState());
+});
+store.dispatch(fetchUsers());
