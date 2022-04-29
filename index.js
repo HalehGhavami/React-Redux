@@ -74,7 +74,8 @@ const rootReducer = combineReducer({
 });
 
 //state of our application is in Redux Store
-const store = createStore(rootReducer);
+//second argument with the help of applyMiddleware for using logger
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 // state is available through getState()
 console.log('IntialStore is', store.getState());
