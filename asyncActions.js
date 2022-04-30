@@ -1,5 +1,5 @@
 const redux = require('redux');
-const thunkMiddleware = require('redux.thunk').default;
+const thunkMiddleware = require('redux-thunk').default;
 const axios = require('axios');
 const createStore = redux.createStore;
 const applyMiddleware = redux.applyMiddleware;
@@ -63,7 +63,7 @@ const fetchUsers = () => {
       .get('https://fakerestapi.azurewebsites.net/api/v1/Users')
 
       .then((Response) => {
-        const users = Response.data;
+        const users = Response.data.map((user) => user.id);
         dispatch(fetchDataSuccess(users));
       })
       .catch((error) => {
